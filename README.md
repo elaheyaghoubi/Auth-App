@@ -61,6 +61,8 @@ npm install
 4. **Open the app in your browser:**
 ```
 http://localhost:3000/auth
+or
+http://localhost:3000/
 ```
 ---
 ## 🔒 Form Validation
