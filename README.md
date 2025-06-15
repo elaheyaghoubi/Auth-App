@@ -49,7 +49,6 @@ This app contains two main pages:
 ```
    git clone https://github.com/elaheyaghoubi/Auth-App.git
    cd my-auth-dashboard 
-
 ```
 2. **Install dependencies:**
 ```
