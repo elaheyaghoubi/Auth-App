@@ -47,8 +47,9 @@ This app contains two main pages:
 1. **Clone the repository:**
 
 ```
-   git clone <your-repo-url>
-   cd <your-repo-folder>
+   git clone https://github.com/elaheyaghoubi/Auth-App.git
+   cd my-auth-dashboard 
+
 ```
 2. **Install dependencies:**
 ```
