@@ -62,18 +62,5 @@ npm install
 ```
 http://localhost:3000/auth
 ```
----
-##Folder Structure
-/app
-  /auth
-    page.tsx            # Auth page component
-    Auth.module.scss    # Styles for auth page
-  /dashboard
-    page.tsx            # Dashboard page component
-    Dashboard.module.scss # Styles for dashboard page
-/components
-  /Input                # Custom Input component
-  /Button               # Custom Button component
-/styles                 # Global styles (if any)
 
 
