@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   .dashboard_content{
+    margin-top: 5rem;
     font-size: 4rem;
     box-shadow:
             0 4px 6px -1px rgba(128, 128, 128, 0.1),
@@ -11,4 +12,19 @@
     border: 1px solid lightgray;
     padding: 10rem;
   }
+
+  @media (max-width: 768px) {
+    .dashboard_content{
+      font-size: 1rem!important;
+      padding: 2rem!important;
+    }
+  }
+}
+
+.spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }

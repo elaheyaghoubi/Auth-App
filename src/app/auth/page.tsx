@@ -2,6 +2,7 @@
 import { useState, useEffect, FormEvent } from "react";
 import styles from '../styles/Auth.module.scss';
 import { useRouter } from "next/navigation";
+import axios from 'axios';
 
 function Auth() {
     const router = useRouter();
@@ -17,18 +18,41 @@ function Auth() {
 
     const authHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (email && phone && password) {
-            localStorage.setItem('email', email);
-            localStorage.setItem('phone', phone);
-            localStorage.setItem('password', password);
-            router.push('/dashboard');
-            setError('');
-            console.log('Data saved:', { email, phone, password });
-        } else {
-            setError("Please enter a valid form");
-            console.log("error");
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^\d{11}$/;
+        const passwordRegex = /^(?=.*[A-Z]).{8,}$/;
+
+        if (!email || !emailRegex.test(email)) {
+            setError("Email is not valid");
+            return;
         }
+
+        if (!phone || !phoneRegex.test(phone)) {
+            setError("Phone number is not valid");
+            return;
+        }
+
+        if (!password || !passwordRegex.test(password)) {
+            setError("Set strong password");
+            return;
+        }
+
+        localStorage.setItem('email', email);
+        localStorage.setItem('phone', phone);
+        localStorage.setItem('password', password);
+        router.push('/dashboard');
+        setError('');
+
+        axios.get('https://randomuser.me/api/?results=1&nat=us')
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
     };
+
 
     return (
         <div className={styles.container}>
@@ -72,7 +96,7 @@ function Auth() {
             </div>
 
             <div className={styles.login_image}>
-                jji9
+
             </div>
         </div>
     );

@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, {useEffect, useState} from 'react';
+import {useRouter} from 'next/navigation';
 import styles from '../styles/Dashboard.module.scss';
+import {ClipLoader} from "react-spinners";
 
 function Dashboard() {
     const router = useRouter();
@@ -21,10 +22,18 @@ function Dashboard() {
     }, [router]);
 
     if (isAuthorized === null) {
-        // Still checking auth status
-        return <div>Loading...</div>;
+        return (
+            <div
+                className={styles.spinner}
+            >
+                <ClipLoader
+                    size={50}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                />
+            </div>
+        );
     }
-
     return (
         <div className={styles.container}>
             <div className={styles.dashboard_content}>
