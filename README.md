@@ -62,5 +62,22 @@ npm install
 ```
 http://localhost:3000/auth
 ```
+---
+## 🔒 Form Validation
+The authentication form includes client-side validation to ensure data correctness before submission. The following rules are enforced:
 
+Email:
+Must be in a valid email format.
+✅ Example: example@domain.com
+❌ Error message: "Email is not valid"
+
+Phone Number:
+Must be exactly 10 digits (numbers only).
+✅ Example: 0912345678
+❌ Error message: "phone number is not valid"
+
+Password:
+Must be at least 8 characters long and contain at least one uppercase letter.
+✅ Example: SecurePass1
+❌ Error message: "set strong password"
 
