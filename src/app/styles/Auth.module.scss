@@ -1,0 +1,103 @@
+@use '../styles/variables' as *;
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 90vh;
+
+  .form {
+    flex-basis: 50%;
+    padding: 2rem;
+
+    h1 {
+      text-align: center;
+      font-weight: bold;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+
+      .error{
+        color: red;
+        //margin: 2rem 0;
+      }
+      input {
+        width: 70%;
+        padding: 1rem;
+        border: 1px solid rgba(101, 97, 97, 0.08);
+        border-radius: 1rem;
+        font-size: 1rem;
+        box-shadow:
+                0 4px 6px -1px rgba(160, 160, 160, 0.15),
+                0 2px 4px -2px rgba(160, 160, 160, 0.08);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+        }
+
+        &::placeholder {
+          color: #aaa;
+          transition: opacity 0.3s;
+        }
+
+        &:focus::placeholder {
+          opacity: 0.6;
+        }
+      }
+
+      .login_button {
+        width: 75%;
+        margin-top: 1rem;
+        padding: 0.7rem 1rem;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #fff;
+        background-color: $primary-color;
+        border: none;
+        border-radius: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          background-color: darken($primary-color, 5%);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 16px rgba(160, 160, 160, 0.2);
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+        }
+
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+    }
+  }
+
+  .login_image {
+    flex-basis: 50%;
+    // You can add img, background styles, or media queries here
+  }
+
+  // Optional: Responsive hook
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .form,
+    .login_image {
+      flex-basis: 100%;
+      width: 100%;
+    }
+  }
+}
