@@ -19,30 +19,35 @@ function Auth() {
     const authHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        if (!email || !phone || !password) {
+            setError("Please fill out all fields");
+            return;
+        }
+
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const phoneRegex = /^\d{11}$/;
         const passwordRegex = /^(?=.*[A-Z]).{8,}$/;
 
-        if (!email || !emailRegex.test(email)) {
-            setError("Email is not valid");
+        if (!emailRegex.test(email)) {
+            setError("Invalid email address");
             return;
         }
 
-        if (!phone || !phoneRegex.test(phone)) {
-            setError("Phone number is not valid");
+        if (!phoneRegex.test(phone)) {
+            setError("Invalid phone number (must be 11 digits)");
             return;
         }
 
-        if (!password || !passwordRegex.test(password)) {
-            setError("Set strong password");
+        if (!passwordRegex.test(password)) {
+            setError("Password must be at least 8 characters and contain an uppercase letter");
             return;
         }
 
+        setError('');
         localStorage.setItem('email', email);
         localStorage.setItem('phone', phone);
         localStorage.setItem('password', password);
         router.push('/dashboard');
-        setError('');
 
         axios.get('https://randomuser.me/api/?results=1&nat=us')
             .then(response => {
