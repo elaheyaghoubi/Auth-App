@@ -65,7 +65,7 @@ or
 http://localhost:3000/
 ```
 ---
-## 🔒 Form Validation
+## Form Validation
 The authentication form includes client-side validation to ensure data correctness before submission. The following rules are enforced:
 
 Email:
